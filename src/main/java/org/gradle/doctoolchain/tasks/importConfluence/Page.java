@@ -40,7 +40,7 @@ public class Page {
     }
 
     public String getFileName () {
-        return getTitle().replace(" ", "_") + ".adoc";
+        return getTitle().replace(" ", "_").replace("/", "_") + ".adoc";
     }
 
     public String getFileNameOutFileSuffix () {

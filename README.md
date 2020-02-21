@@ -5,3 +5,4 @@ wrapper for the doctoolchain to integrate in an existing project
 
 
 [![CodeCoverage](https://codecov.io/gh/moley/gradle-doctoolchain-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/moley/gradle-doctoolchain-plugin)
+
