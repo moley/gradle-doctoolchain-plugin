@@ -70,7 +70,7 @@ public class Page {
         File adocFile = new File (importAdocPath, getFileName());
         String content = getContent();
 
-        Files.writeString(exportFile.toPath(), content);
+        FileUtils.write(exportFile, content);
 
         Document document = Jsoup.parse(content);
         for (Preprocessor nextPreprocessor: preprocessors) {
@@ -80,7 +80,7 @@ public class Page {
 
         //remove sonderzeichen
 
-        Files.writeString(exportFilePreProcessed.toPath(), content);
+        FileUtils.write(exportFilePreProcessed, content);
 
         ProcessBuilder processBuilder = new ProcessBuilder("pandoc", "--wrap=none", "-f", "html", "-t", "asciidoc", exportFilePreProcessed.getAbsolutePath());
         System.out.println (String.join(" ", processBuilder.command()));

@@ -20,20 +20,32 @@ public class ImportFromConfluenceTask extends DefaultTask {
 
   private String password;
 
-  private File htmlImportDir = getProject().file("build/doctoolchain/html");
-  private File htmlImportDirPreprocessed = getProject().file("build/doctoolchain/htmlPreprocessed");
-  private File adocImportDir = getProject().file("src");
+  private String folder;
+
+
 
 
 
   @TaskAction
   public void importFromConfluence () throws IOException, JSONException {
 
+
     if (pageId == null)
       throw new IllegalStateException("PageID not set, please use parameter --pageid to set a valid id");
 
     if (confluenceUrl == null)
       throw new IllegalStateException("Import URL not set, please use parameter --url to set a valid confluence url");
+
+
+    if (folder == null)
+      folder = "";
+    else
+      folder = "/" + folder;
+
+    File htmlImportDir = getProject().file("build/doctoolchain/html" + folder);
+    File htmlImportDirPreprocessed = getProject().file("build/doctoolchain/htmlPreprocessed" + folder);
+    File adocImportDir = getProject().file("src" + folder);
+
 
     FileUtils.deleteDirectory(htmlImportDir);
     FileUtils.deleteDirectory(htmlImportDirPreprocessed);
@@ -87,5 +99,10 @@ public class ImportFromConfluenceTask extends DefaultTask {
   @Option(option = "pageid", description = "The page id of confluence of the root page. This page and all direct children are imported")
   public void setPageId(String pageId) {
     this.pageId = pageId;
+  }
+
+  @Option(option = "folder", description = "Folder to generate things to")
+  public void setFolder(String folder) {
+    this.folder = folder;
   }
 }
