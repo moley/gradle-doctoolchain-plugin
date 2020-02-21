@@ -1,5 +1,5 @@
 # gradle-doctoolchain-plugin
-generate api documentation in javadoc manner
+wrapper for the doctoolchain to integrate in an existing project
 
 [![Build Status](https://travis-ci.org/moley/gradle-doctoolchain-plugin.svg?branch=master)](https://travis-ci.org/moley/gradle-doctoolchain-plugin)
 
