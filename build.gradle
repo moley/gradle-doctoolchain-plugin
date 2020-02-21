@@ -1,0 +1,96 @@
+buildscript {
+  repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter()
+
+  }
+  dependencies {
+    classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+  }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter()
+}
+
+apply {
+  plugin 'java'
+  plugin 'com.jfrog.bintray'
+  plugin 'maven-publish'
+  plugin 'jacoco'
+}
+
+//create source jar
+tasks.create('sourceJar', Jar) {
+  from sourceSets.main.allJava
+}
+
+group = 'gradle.plugin.com.github.moley'
+version = '0.1'
+
+dependencies {
+  compile gradleApi()
+
+  implementation 'org.apache.httpcomponents:httpclient:4.2.6'
+  implementation 'commons-lang:commons-lang:2.6'
+  implementation 'commons-io:commons-io:2.4'
+  implementation 'org.json:json:20090211'
+  implementation 'org.jsoup:jsoup:1.12.2'
+
+  testCompile 'junit:junit:4.12'
+}
+
+
+//publish the additional source jar
+publishing {
+  publications {
+    myPublication(MavenPublication) {
+      from components.java
+
+      artifact project.sourceJar {
+        classifier 'sources'
+      }
+    }
+  }
+}
+
+bintray {
+  user = System.properties['bintray.username']
+  key = System.properties['bintray.password']
+  publications = ['myPublication']
+  pkg {
+    repo = 'gradle-doctoolchain-plugin'
+    name = "${project.name}"
+    desc = 'generate api documentation in java doc manner'
+    websiteUrl = 'https://github.com/moley/gradle-doctoolchain-plugin'
+    issueTrackerUrl = 'https://github.com/moley/gradle-doctoolchain-plugin'
+    vcsUrl = 'https://github.com/moley/gradle-doctoolchain-plugin.git'
+    licenses = ['Apache-2.0']
+    labels = ['apidoc', 'gradle', 'documentation', 'plugin']
+    attributes= ['plat': ['win', 'linux', 'osx']]
+    publicDownloadNumbers = true
+    version.attributes = [ 'gradle-plugin': "gradle.plugin.com.github.moley.${project.name}:gradle.plugin.com.github.moley:${project.name}" ]
+  }
+}
+
+jacocoTestReport {
+  reports {
+    xml.enabled true
+    html.enabled false
+  }
+}
+
+project.sourceCompatibility = JavaVersion.VERSION_11
+project.targetCompatibility = JavaVersion.VERSION_11
+
+check.dependsOn jacocoTestReport
+
+publishToMavenLocal.doFirst {
+  println "Version: " + project.version
+}
+
+
+
