@@ -12,7 +12,7 @@
 # How to use it
 
 Add the follow to your `build.gradle` file: 
-```
+```groovy
 buildscript {
     repositories {
       maven { url "https://dl.bintray.com/markusoley/gradle-java-apidoc-plugin" }
