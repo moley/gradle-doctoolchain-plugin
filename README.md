@@ -9,7 +9,7 @@
 
 *gradle-doctoolchain-plugin* is a gradle plugin which helps you integrate [doctoolchain](https://github.com/docToolchain/docToolchain) into an existing build. 
 
-#How to use it
+# How to use it
 
 Add the follow to your `build.gradle` file: 
 ```
@@ -35,7 +35,7 @@ find the following tasks:
 |*publishToConfluence* | Downloads the doctoolchain into folder 'doctoolchain' and delegates to task publishToConfluence of doctoolchain |
 
 
-#Importing existing confluence documentation
+# Importing existing confluence documentation
 If you want to use doctoolchain not on a new project but on a project with existing documentation in confluence 
 you can configure *gradle-doctoolchain-plugin* to create tasks to import your content from confluence. 
 Configure import like: 
