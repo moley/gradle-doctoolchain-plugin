@@ -30,9 +30,11 @@ apply {
 When you call `gradlew tasks` afterwards you get a new chapter *Doctoolchain tasks*, where you 
 find the following tasks: 
 
-|*generateHTML*        | Downloads the doctoolchain into folder 'doctoolchain' and delegates to task generateHtml of doctoolchain | 
-|*generatePDF*         | Downloads the doctoolchain into folder 'doctoolchain' and delegates to task generatePDF of doctoolchain |
-|*publishToConfluence* | Downloads the doctoolchain into folder 'doctoolchain' and delegates to task publishToConfluence of doctoolchain |
+| Task        | Description |
+| ------------- |:-------------:| 
+| *generateHTML*        | Downloads the doctoolchain into folder 'doctoolchain' and delegates to task generateHtml of doctoolchain | 
+| *generatePDF*         | Downloads the doctoolchain into folder 'doctoolchain' and delegates to task generatePDF of doctoolchain |
+| *publishToConfluence* | Downloads the doctoolchain into folder 'doctoolchain' and delegates to task publishToConfluence of doctoolchain |
 
 
 # Importing existing confluence documentation
