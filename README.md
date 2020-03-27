@@ -32,7 +32,7 @@ find the following tasks:
 
 | Task        | Description |
 | ------------- |:-------------:| 
-| *generateHTML*        | Downloads the doctoolchain into folder 'doctoolchain' and delegates to task generateHtml of doctoolchain | 
+| *generateHTML*        | Downloads the doctoolchain into folder 'doctoolchain' and delegates to task generateHTML of doctoolchain | 
 | *generatePDF*         | Downloads the doctoolchain into folder 'doctoolchain' and delegates to task generatePDF of doctoolchain |
 | *publishToConfluence* | Downloads the doctoolchain into folder 'doctoolchain' and delegates to task publishToConfluence of doctoolchain |
 
