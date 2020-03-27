@@ -1,9 +1,6 @@
 buildscript {
   repositories {
     mavenCentral()
-    mavenLocal()
-    jcenter()
-
   }
   dependencies {
     classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
@@ -12,8 +9,6 @@ buildscript {
 
 repositories {
     mavenCentral()
-    mavenLocal()
-    jcenter()
 }
 
 apply {
@@ -87,10 +82,4 @@ project.sourceCompatibility = JavaVersion.VERSION_1_8
 project.targetCompatibility = JavaVersion.VERSION_1_8
 
 check.dependsOn jacocoTestReport
-
-publishToMavenLocal.doFirst {
-  println "Version: " + project.version
-}
-
-
 
