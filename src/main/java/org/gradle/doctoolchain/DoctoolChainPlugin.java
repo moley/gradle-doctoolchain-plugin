@@ -12,13 +12,15 @@ import org.gradle.api.Task;
 import org.gradle.api.tasks.Exec;
 import org.gradle.doctoolchain.tasks.importConfluence.ImportFromConfluenceTask;
 
+/**
+ * Wrapper around doctoolchain
+ */
 public class DoctoolChainPlugin implements Plugin<Project> {
 
   public final static String GROUP = "doctoolchain";
 
-  @java.lang.Override public void apply(Project project) {
-
-
+  @java.lang.Override
+  public void apply(Project project) {
 
     final String user = System.getProperty("confluence.user");
     final String password = System.getProperty("confluence.plainPassword");

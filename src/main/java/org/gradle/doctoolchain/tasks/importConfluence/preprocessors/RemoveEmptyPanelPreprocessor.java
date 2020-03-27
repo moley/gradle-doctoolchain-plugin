@@ -5,7 +5,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 /**
- * PreProcessor, which converts macro source to something valid
+ * PreProcessor, which removes empty panels
  */
 public class RemoveEmptyPanelPreprocessor implements Preprocessor {
   @Override public Document process(Document document) {

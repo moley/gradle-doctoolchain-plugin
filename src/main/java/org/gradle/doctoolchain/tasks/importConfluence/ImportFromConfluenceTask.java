@@ -10,6 +10,13 @@ import org.gradle.api.tasks.TaskAction;
 import org.gradle.api.tasks.options.Option;
 import org.json.JSONException;
 
+/**
+ * Task to import existing documentation from confluence
+ * - Downloading page with subpages via rest api
+ * - Do some pre processing
+ * - Create adoc with pandoc
+ * - Do some post processing
+ */
 public class ImportFromConfluenceTask extends DefaultTask {
 
   private String pageId;

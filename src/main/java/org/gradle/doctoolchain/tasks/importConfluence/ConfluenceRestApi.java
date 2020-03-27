@@ -20,7 +20,9 @@ import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-
+/**
+ * wrapper around the confluence rest api
+ */
 public class ConfluenceRestApi implements Serializable {
 
   /**
@@ -39,11 +41,11 @@ public class ConfluenceRestApi implements Serializable {
   }
 
   /**
-   * Liefert die URL für den Rest-Zugriff.
-   * @param contentId  die ID der Page
-   * @param expansions Felder die man haben möchte
-   * @return die erzeugte URL
-   * @throws UnsupportedEncodingException Encoding-Problem
+   * get the URL for te rest call
+   * @param contentId  ID of page
+   * @param expansions fields to get
+   * @return created url
+   * @throws UnsupportedEncodingException Encoding problem
    */
   private String getContentRestUrl(final Long contentId, final String[] expansions) throws UnsupportedEncodingException {
     final String expand = URLEncoder.encode(StringUtils.join(expansions, ","), ENCODING);

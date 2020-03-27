@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -17,6 +16,9 @@ import org.gradle.doctoolchain.tasks.importConfluence.preprocessors.SourceCodePr
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+/**
+ * Wrapper around a confluence page
+ */
 public class Page {
 
     private Collection<Preprocessor> preprocessors = Arrays.asList( new SourceCodePreprocessor(),
@@ -59,6 +61,13 @@ public class Page {
         this.content = content;
     }
 
+    /**
+     * saves the page
+     * @param exportHtmlPath                path containing html page imported from confluence
+     * @param exportHtmlPreProcessedPath    path containing html page after pre processing
+     * @param importAdocPath                path containing adoc page after pandoc
+     * @throws IOException
+     */
     public void save (final File exportHtmlPath,
                       final File exportHtmlPreProcessedPath,
                       final File importAdocPath) throws IOException {

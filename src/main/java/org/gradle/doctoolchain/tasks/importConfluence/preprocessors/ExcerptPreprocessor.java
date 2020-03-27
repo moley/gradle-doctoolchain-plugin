@@ -4,6 +4,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+/**
+ * Preprocessor which removes excerpts
+ */
 public class ExcerptPreprocessor implements Preprocessor {
   @Override public Document process(Document document) {
     Elements elements = document.getElementsByAttributeValue("ac:name", "excerpt");

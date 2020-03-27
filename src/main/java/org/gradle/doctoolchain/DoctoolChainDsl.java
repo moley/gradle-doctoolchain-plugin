@@ -3,15 +3,21 @@ package org.gradle.doctoolchain;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * extension for configuring doctoolchain plugin
+ */
 public class DoctoolChainDsl {
 
 
   private List<DoctoolchainImport> importList = new ArrayList<DoctoolchainImport>();
 
-  public DoctoolChainDsl () {
-    System.out.println ("Hello");
-  }
-
+  /**
+   * add an item to be imported from confluence
+   *
+   * @param pageId    page ID
+   * @param url       url of confluence
+   * @param folder    subfolder to save the importes pages to
+   */
   public void importItem (String pageId, String url, final String folder) {
     DoctoolchainImport newImportItem = new DoctoolchainImport();
     newImportItem.pageId = pageId;
