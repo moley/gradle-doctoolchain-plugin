@@ -39,7 +39,7 @@ find the following tasks:
 If you want to use doctoolchain not on a new project but on a project with existing documentation in confluence 
 you can configure *gradle-doctoolchain-plugin* to create tasks to import your content from confluence. 
 Configure import like: 
-```
+```gradle
 doctoolchain {
     importItem('91265015', 'https://myconfluence.company/', 'beginner')
     importItem(PAGE_ID_IN_CONFLUENCE, 'CONFLUENCE_URL', 'FOLDER_TO_SAVE_IT_TO')
